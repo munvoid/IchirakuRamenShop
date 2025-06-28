@@ -58,6 +58,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(515, 159);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 
@@ -213,6 +214,7 @@
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "sx";
+            Load += Form2_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

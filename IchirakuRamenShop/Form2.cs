@@ -13,7 +13,7 @@ namespace IchirakuRamenShop
 {
     public partial class Form2 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=rms;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-1D8R49Q;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
 
         public Form2()
         {
@@ -71,45 +71,45 @@ namespace IchirakuRamenShop
         {
             try
             {
-               
-                    con.Open();
 
-                    // Optional: Check if username exists
-                    string checkQuery = "SELECT COUNT(*) FROM [User] WHERE Username = @username";
-                    SqlCommand checkCmd = new SqlCommand(checkQuery, con);
-                    checkCmd.Parameters.AddWithValue("@username", username);
-                    int exists = (int)checkCmd.ExecuteScalar();
-                    if (exists > 0)
-                    {
-                        MessageBox.Show("Username already exists. Try another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                con.Open();
 
-                    // Insert query (Uid auto-generated with NEWID or IDENTITY in practice; here we use MAX+1)
-                    string getMaxIdQuery = "SELECT ISNULL(MAX(Uid), 0) + 1 FROM [User]";
-                    SqlCommand getIdCmd = new SqlCommand(getMaxIdQuery, con);
-                    int newUid = (int)getIdCmd.ExecuteScalar();
+                // Optional: Check if username exists
+                string checkQuery = "SELECT COUNT(*) FROM [User] WHERE Username = @username";
+                SqlCommand checkCmd = new SqlCommand(checkQuery, con);
+                checkCmd.Parameters.AddWithValue("@username", username);
+                int exists = (int)checkCmd.ExecuteScalar();
+                if (exists > 0)
+                {
+                    MessageBox.Show("Username already exists. Try another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                    string insertQuery = "INSERT INTO [User] (Uid, Username, Role, Name, Password) " +
-                                         "VALUES (@uid, @username, @role, @name, @password)";
+                // Insert query (Uid auto-generated with NEWID or IDENTITY in practice; here we use MAX+1)
+                string getMaxIdQuery = "SELECT ISNULL(MAX(Uid), 0) + 1 FROM [User]";
+                SqlCommand getIdCmd = new SqlCommand(getMaxIdQuery, con);
+                int newUid = (int)getIdCmd.ExecuteScalar();
 
-                    SqlCommand insertCmd = new SqlCommand(insertQuery, con);
-                    insertCmd.Parameters.AddWithValue("@uid", newUid);
-                    insertCmd.Parameters.AddWithValue("@username", username);
-                    insertCmd.Parameters.AddWithValue("@role", "Customer"); // Default role
-                    insertCmd.Parameters.AddWithValue("@name", name);
-                    insertCmd.Parameters.AddWithValue("@password", password);
+                string insertQuery = "INSERT INTO [User] (Uid, Username, Role, Name, Password) " +
+                                     "VALUES (@uid, @username, @role, @name, @password)";
 
-                    int rows = insertCmd.ExecuteNonQuery();
-                    if (rows > 0)
-                    {
-                        MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Registration failed.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                
+                SqlCommand insertCmd = new SqlCommand(insertQuery, con);
+                insertCmd.Parameters.AddWithValue("@uid", newUid);
+                insertCmd.Parameters.AddWithValue("@username", username);
+                insertCmd.Parameters.AddWithValue("@role", "Customer"); // Default role
+                insertCmd.Parameters.AddWithValue("@name", name);
+                insertCmd.Parameters.AddWithValue("@password", password);
+
+                int rows = insertCmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Registration failed.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             catch (Exception ex)
             {
@@ -118,6 +118,16 @@ namespace IchirakuRamenShop
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+      
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }
