@@ -45,7 +45,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox1 = new PictureBox();
             guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -53,13 +52,14 @@
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             dataGridView1 = new DataGridView();
-            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             PID = new DataGridViewTextBoxColumn();
             PNAME = new DataGridViewTextBoxColumn();
             PRICE = new DataGridViewTextBoxColumn();
             IMAGE = new DataGridViewTextBoxColumn();
+            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            label1 = new Label();
+            textBox1 = new TextBox();
             guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             guna2Panel3.SuspendLayout();
@@ -67,7 +67,6 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Controls.Add(pictureBox1);
             guna2Panel1.Controls.Add(guna2ControlBox3);
             guna2Panel1.Controls.Add(guna2ControlBox2);
             guna2Panel1.Controls.Add(guna2ControlBox1);
@@ -77,18 +76,8 @@
             guna2Panel1.Location = new Point(0, 0);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(2000, 140);
+            guna2Panel1.Size = new Size(2000, 87);
             guna2Panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.images;
-            pictureBox1.Location = new Point(15, 6);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(182, 128);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
             // 
             // guna2ControlBox3
             // 
@@ -133,7 +122,7 @@
             guna2Panel2.CustomizableEdges = customizableEdges13;
             guna2Panel2.Dock = DockStyle.Top;
             guna2Panel2.FillColor = Color.FromArgb(255, 225, 130);
-            guna2Panel2.Location = new Point(0, 140);
+            guna2Panel2.Location = new Point(0, 87);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Panel2.Size = new Size(2000, 127);
@@ -176,24 +165,12 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { PID, PNAME, PRICE, IMAGE });
-            dataGridView1.Location = new Point(116, 34);
+            dataGridView1.Location = new Point(56, 50);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(958, 349);
+            dataGridView1.Size = new Size(887, 349);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // guna2Panel3
-            // 
-            guna2Panel3.Controls.Add(dataGridView1);
-            guna2Panel3.CustomizableEdges = customizableEdges15;
-            guna2Panel3.Dock = DockStyle.Fill;
-            guna2Panel3.Location = new Point(0, 267);
-            guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Panel3.Size = new Size(2000, 583);
-            guna2Panel3.TabIndex = 2;
-            guna2Panel3.Paint += guna2Panel3_Paint;
             // 
             // PID
             // 
@@ -227,6 +204,37 @@
             IMAGE.Name = "IMAGE";
             IMAGE.Width = 200;
             // 
+            // guna2Panel3
+            // 
+            guna2Panel3.Controls.Add(textBox1);
+            guna2Panel3.Controls.Add(label1);
+            guna2Panel3.Controls.Add(dataGridView1);
+            guna2Panel3.CustomizableEdges = customizableEdges15;
+            guna2Panel3.Dock = DockStyle.Fill;
+            guna2Panel3.Location = new Point(0, 214);
+            guna2Panel3.Name = "guna2Panel3";
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel3.Size = new Size(2000, 636);
+            guna2Panel3.TabIndex = 2;
+            guna2Panel3.Paint += guna2Panel3_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(1233, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(391, 32);
+            label1.TabIndex = 3;
+            label1.Text = "Write the PID to delete the product";
+            label1.Click += label1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(1233, 128);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(391, 39);
+            textBox1.TabIndex = 4;
+            // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -240,10 +248,10 @@
             Text = "Form6";
             Load += Form6_Load_1;
             guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             guna2Panel3.ResumeLayout(false);
+            guna2Panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -263,5 +271,7 @@
         private DataGridViewTextBoxColumn PNAME;
         private DataGridViewTextBoxColumn PRICE;
         private DataGridViewTextBoxColumn IMAGE;
+        private Label label1;
+        private TextBox textBox1;
     }
 }

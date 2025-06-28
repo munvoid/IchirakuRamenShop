@@ -93,7 +93,7 @@ namespace IchirakuRamenShop
 
         private void Form6_Click(object sender, EventArgs e)
         {
-            Form5 f1 = new Form5();
+            Form7 f1 = new Form7();
             f1.Show();
             this.Hide();
         }
