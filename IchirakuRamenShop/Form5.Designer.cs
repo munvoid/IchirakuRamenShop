@@ -41,10 +41,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            button1 = new Button();
             btnClose = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            cartTable = new DataGridView();
             dataGridViewProducts = new DataGridView();
             Pid = new DataGridViewTextBoxColumn();
             PName = new DataGridViewTextBoxColumn();
@@ -54,13 +56,12 @@
             guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
-            cartTable = new DataGridView();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cartTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)cartTable).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
@@ -76,6 +77,16 @@
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel1.Size = new Size(481, 1200);
             guna2Panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1044, 759);
+            button1.Name = "button1";
+            button1.Size = new Size(250, 75);
+            button1.TabIndex = 2;
+            button1.Text = "Place Order";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnOrder_Click;
             // 
             // btnClose
             // 
@@ -109,6 +120,7 @@
             // 
             // guna2Panel2
             // 
+            guna2Panel2.Controls.Add(button1);
             guna2Panel2.Controls.Add(cartTable);
             guna2Panel2.Controls.Add(dataGridViewProducts);
             guna2Panel2.CustomizableEdges = customizableEdges3;
@@ -120,6 +132,15 @@
             guna2Panel2.Size = new Size(1519, 1200);
             guna2Panel2.TabIndex = 1;
             guna2Panel2.Paint += guna2Panel2_Paint;
+            // 
+            // cartTable
+            // 
+            cartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            cartTable.Location = new Point(963, 164);
+            cartTable.Name = "cartTable";
+            cartTable.RowHeadersWidth = 82;
+            cartTable.Size = new Size(528, 741);
+            cartTable.TabIndex = 1;
             // 
             // dataGridViewProducts
             // 
@@ -221,15 +242,6 @@
             btnexit.TabIndex = 0;
             btnexit.Click += btnexit_Click;
             // 
-            // cartTable
-            // 
-            cartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            cartTable.Location = new Point(963, 164);
-            cartTable.Name = "cartTable";
-            cartTable.RowHeadersWidth = 82;
-            cartTable.Size = new Size(528, 741);
-            cartTable.TabIndex = 1;
-            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(192F, 192F);
@@ -247,9 +259,9 @@
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)cartTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).EndInit();
             guna2Panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)cartTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -270,5 +282,6 @@
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn Image;
         private DataGridView cartTable;
+        private Button button1;
     }
 }

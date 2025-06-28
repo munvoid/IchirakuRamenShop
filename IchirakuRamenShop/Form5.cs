@@ -16,11 +16,11 @@ namespace IchirakuRamenShop
         Int32 totalAmount = 0;
         DataTable table;
 
-        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=rms;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
 
         public Form5()
         {
-            
+
             InitializeComponent();
         }
 
@@ -33,8 +33,10 @@ namespace IchirakuRamenShop
             table.Columns.Add("Product ID", typeof(int));
             table.Columns.Add("Product Name", typeof(string));
             table.Columns.Add("Price", typeof(int));
+            table.Columns.Add("Quantity", typeof(int));
 
             cartTable.DataSource = table;
+
 
         }
         private void LoadProductGrid()
@@ -109,17 +111,27 @@ namespace IchirakuRamenShop
                                "Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void AddToCart(int productId, string productName, int price)
         {
+            // Check if the product is already in the cart
+            foreach (DataRow row in table.Rows)
+            {
+                if ((int)row["Product ID"] == productId)
+                {
+                    // Product already in cart, increase quantity
+                    row["Quantity"] = (int)row["Quantity"] + 1;
+                    return;
+                }
+            }
 
-            table.Rows.Add(productId, productName, price);
+            // If not found, add new row with quantity 1
+            table.Rows.Add(productId, productName, price, 1);
         }
 
 
         private void PlaceOrder(int customerId)
         {
-            if (cartTable.Rows.Count == 0)
+            if (table.Rows.Count == 0) // cartTable.DataSource = table;
             {
                 MessageBox.Show("Cart is empty!");
                 return;
@@ -128,33 +140,29 @@ namespace IchirakuRamenShop
             try
             {
                 con.Open();
-
-                // 1. Insert into Cart and get new Cartid
                 SqlCommand cmdCart = new SqlCommand("INSERT INTO Cart DEFAULT VALUES; SELECT SCOPE_IDENTITY();", con);
                 int cartId = Convert.ToInt32(cmdCart.ExecuteScalar());
 
-                // 2. Insert into Has (link customer and cart)
+                // 2. Link Cart with Customer
                 SqlCommand cmdHas = new SqlCommand("INSERT INTO Has (Cid, Cartid) VALUES (@cid, @cartid)", con);
                 cmdHas.Parameters.AddWithValue("@cid", customerId);
                 cmdHas.Parameters.AddWithValue("@cartid", cartId);
                 cmdHas.ExecuteNonQuery();
 
-                // 3. Insert each cart item into Stores
-                foreach (DataRow row in cartTable.Rows)
+                // 3. Insert cart items into Stores
+                foreach (DataRow row in table.Rows)
                 {
                     SqlCommand cmdStores = new SqlCommand(
                         "INSERT INTO Stores (Cartid, Pid, Quantity) VALUES (@cartid, @pid, @qty)", con);
                     cmdStores.Parameters.AddWithValue("@cartid", cartId);
-                    cmdStores.Parameters.AddWithValue("@pid", row["ProductId"]);
+                    cmdStores.Parameters.AddWithValue("@pid", row["Product ID"]);  // match DataTable column name
                     cmdStores.Parameters.AddWithValue("@qty", row["Quantity"]);
                     cmdStores.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Order placed successfully!");
 
-                // Optionally clear the cart
-                
-                CalculateTotal();
+                // 5. Clear the cart
+                table.Rows.Clear();
             }
             catch (Exception ex)
             {
@@ -165,6 +173,7 @@ namespace IchirakuRamenShop
                 con.Close();
             }
         }
+
         private void CalculateTotal()
         {
             totalAmount = 0;
@@ -176,6 +185,11 @@ namespace IchirakuRamenShop
         private void btnClose_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            PlaceOrder(300);
         }
     }
 }
