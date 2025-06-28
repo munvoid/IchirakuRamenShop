@@ -90,5 +90,10 @@ namespace IchirakuRamenShop
                 // TODO: Add actual cart logic here
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
