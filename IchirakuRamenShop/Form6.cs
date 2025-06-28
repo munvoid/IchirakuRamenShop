@@ -67,14 +67,19 @@ namespace IchirakuRamenShop
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "AddToCart" && e.RowIndex >= 0)
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "DeleteProduct" && e.RowIndex >= 0)
             {
-                var cell = dataGridView1.Rows[e.RowIndex].Cells["PName"];
-                if (cell != null && cell.Value != null)
+                // Get product details from the selected row
+                int pid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Pid"].Value);
+                string pname = dataGridView1.Rows[e.RowIndex].Cells["PName"].Value.ToString();
+                
+                // Confirm deletion
+                DialogResult result = MessageBox.Show($"Are you sure you want to delete '{pname}'?", 
+                                                    "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                
+                if (result == DialogResult.Yes)
                 {
-                    string pname = cell.Value.ToString();
-                    MessageBox.Show($"{pname} added to cart!", "Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // TODO: Add actual cart logic here
+                    DeleteProduct(pid, pname);
                 }
             }
         }
