@@ -46,14 +46,14 @@
             pictureBox1 = new PictureBox();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             dataGridViewProducts = new DataGridView();
-            Pid = new DataGridViewTextBoxColumn();
-            PName = new DataGridViewTextBoxColumn();
-            Price = new DataGridViewTextBoxColumn();
-            Image = new DataGridViewTextBoxColumn();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
+            Pid = new DataGridViewTextBoxColumn();
+            PName = new DataGridViewTextBoxColumn();
+            Price = new DataGridViewTextBoxColumn();
+            Image = new DataGridViewTextBoxColumn();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2Panel2.SuspendLayout();
@@ -129,35 +129,6 @@
             dataGridViewProducts.TabIndex = 0;
             dataGridViewProducts.CellContentClick += dataGridViewProducts_CellContentClick;
             // 
-            // Pid
-            // 
-            Pid.DataPropertyName = "PID";
-            Pid.HeaderText = "PID";
-            Pid.MinimumWidth = 10;
-            Pid.Name = "Pid";
-            Pid.Width = 200;
-            // 
-            // PName
-            // 
-            PName.HeaderText = "PNAME";
-            PName.MinimumWidth = 10;
-            PName.Name = "PName";
-            PName.Width = 200;
-            // 
-            // Price
-            // 
-            Price.HeaderText = "PRICE";
-            Price.MinimumWidth = 10;
-            Price.Name = "Price";
-            Price.Width = 200;
-            // 
-            // Image
-            // 
-            Image.HeaderText = "IMAGE";
-            Image.MinimumWidth = 10;
-            Image.Name = "Image";
-            Image.Width = 200;
-            // 
             // guna2Panel3
             // 
             guna2Panel3.Controls.Add(guna2ControlBox3);
@@ -214,6 +185,38 @@
             btnexit.Size = new Size(65, 59);
             btnexit.TabIndex = 0;
             btnexit.Click += btnexit_Click;
+            // 
+            // Pid
+            // 
+            Pid.DataPropertyName = "PID";
+            Pid.HeaderText = "PID";
+            Pid.MinimumWidth = 10;
+            Pid.Name = "Pid";
+            Pid.Width = 200;
+            // 
+            // PName
+            // 
+            PName.DataPropertyName = "PNAME";
+            PName.HeaderText = "PNAME";
+            PName.MinimumWidth = 10;
+            PName.Name = "PName";
+            PName.Width = 200;
+            // 
+            // Price
+            // 
+            Price.DataPropertyName = "PRICE";
+            Price.HeaderText = "PRICE";
+            Price.MinimumWidth = 10;
+            Price.Name = "Price";
+            Price.Width = 200;
+            // 
+            // Image
+            // 
+            Image.DataPropertyName = "IMAGE";
+            Image.HeaderText = "IMAGE";
+            Image.MinimumWidth = 10;
+            Image.Name = "Image";
+            Image.Width = 200;
             // 
             // Form5
             // 
