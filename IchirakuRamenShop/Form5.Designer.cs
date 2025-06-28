@@ -41,20 +41,29 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            btnClose = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            dataGridViewProducts = new DataGridView();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
+            Pid = new DataGridViewTextBoxColumn();
+            PName = new DataGridViewTextBoxColumn();
+            Price = new DataGridViewTextBoxColumn();
+            Image = new DataGridViewTextBoxColumn();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             guna2Panel3.SuspendLayout();
             SuspendLayout();
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(btnClose);
             guna2Panel1.Controls.Add(label1);
             guna2Panel1.Controls.Add(pictureBox1);
             guna2Panel1.CustomizableEdges = customizableEdges1;
@@ -65,6 +74,15 @@
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel1.Size = new Size(481, 1200);
             guna2Panel1.TabIndex = 0;
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(83, 692);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(150, 46);
+            btnClose.TabIndex = 1;
+            btnClose.Text = "button1";
+            btnClose.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -88,6 +106,7 @@
             // 
             // guna2Panel2
             // 
+            guna2Panel2.Controls.Add(dataGridViewProducts);
             guna2Panel2.CustomizableEdges = customizableEdges3;
             guna2Panel2.Dock = DockStyle.Fill;
             guna2Panel2.Font = new Font("Segoe UI", 15F);
@@ -96,6 +115,18 @@
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel2.Size = new Size(1519, 1200);
             guna2Panel2.TabIndex = 1;
+            guna2Panel2.Paint += guna2Panel2_Paint;
+            // 
+            // dataGridViewProducts
+            // 
+            dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProducts.Columns.AddRange(new DataGridViewColumn[] { Pid, PName, Price, Image });
+            dataGridViewProducts.Location = new Point(35, 164);
+            dataGridViewProducts.Name = "dataGridViewProducts";
+            dataGridViewProducts.RowHeadersWidth = 82;
+            dataGridViewProducts.Size = new Size(1095, 741);
+            dataGridViewProducts.TabIndex = 0;
+            dataGridViewProducts.CellContentClick += dataGridViewProducts_CellContentClick;
             // 
             // guna2Panel3
             // 
@@ -154,6 +185,35 @@
             btnexit.TabIndex = 0;
             btnexit.Click += btnexit_Click;
             // 
+            // Pid
+            // 
+            Pid.DataPropertyName = "PID";
+            Pid.HeaderText = "PID";
+            Pid.MinimumWidth = 10;
+            Pid.Name = "Pid";
+            Pid.Width = 200;
+            // 
+            // PName
+            // 
+            PName.HeaderText = "PNAME";
+            PName.MinimumWidth = 10;
+            PName.Name = "PName";
+            PName.Width = 200;
+            // 
+            // Price
+            // 
+            Price.HeaderText = "PRICE";
+            Price.MinimumWidth = 10;
+            Price.Name = "Price";
+            Price.Width = 200;
+            // 
+            // Image
+            // 
+            Image.HeaderText = "IMAGE";
+            Image.MinimumWidth = 10;
+            Image.Name = "Image";
+            Image.Width = 200;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(192F, 192F);
@@ -170,6 +230,8 @@
             Load += Form5_Load;
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).EndInit();
             guna2Panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -184,5 +246,11 @@
         private Guna.UI2.WinForms.Guna2ControlBox btnexit;
         private Label label1;
         private PictureBox pictureBox1;
+        private DataGridView dataGridViewProducts;
+        private Button btnClose;
+        private DataGridViewTextBoxColumn Pid;
+        private DataGridViewTextBoxColumn PName;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn Image;
     }
 }
