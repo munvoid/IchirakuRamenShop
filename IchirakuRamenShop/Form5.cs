@@ -13,10 +13,14 @@ namespace IchirakuRamenShop
 {
     public partial class Form5 : Form
     {
+        Int32 totalAmount = 0;
+        DataTable table;
+
         SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=rms;Integrated Security=True;Encrypt=False");
 
         public Form5()
         {
+            
             InitializeComponent();
         }
 
@@ -25,7 +29,12 @@ namespace IchirakuRamenShop
             MessageBox.Show("Form 6 LOAD");
 
             LoadProductGrid();
- 
+            table = new DataTable();
+            table.Columns.Add("Product ID", typeof(int));
+            table.Columns.Add("Product Name", typeof(string));
+            table.Columns.Add("Price", typeof(int));
+
+            cartTable.DataSource = table;
 
         }
         private void LoadProductGrid()
@@ -91,43 +100,22 @@ namespace IchirakuRamenShop
                 // Get product details from the selected row
                 int pid = Convert.ToInt32(dataGridViewProducts.Rows[e.RowIndex].Cells["Pid"].Value);
                 string pname = dataGridViewProducts.Rows[e.RowIndex].Cells["PName"].Value.ToString();
-                decimal price = Convert.ToDecimal(dataGridViewProducts.Rows[e.RowIndex].Cells["Price"].Value);
+                Int32 price = Convert.ToInt32(dataGridViewProducts.Rows[e.RowIndex].Cells["Price"].Value);
 
                 // Add to cart
                 AddToCart(pid, pname, price);
 
-                MessageBox.Show($"{pname} added to cart!\nTotal items: {GetCartItemCount()}\nTotal amount: ${GetCartTotal():F2}",
+                MessageBox.Show($"{pname} added to cart!\nTotal items: \nTotal amount: ",
                                "Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void AddToCart(int productId, string productName, decimal price)
+        private void AddToCart(int productId, string productName, int price)
         {
-            // Check if product already exists in cart
-            DataRow existingRow = cartTable.AsEnumerable()
-                .FirstOrDefault(row => row.Field<int>("ProductId") == productId);
 
-            if (existingRow != null)
-            {
-                // Product exists, increase quantity
-                int currentQty = existingRow.Field<int>("Quantity");
-                existingRow["Quantity"] = currentQty + 1;
-                existingRow["Total"] = (currentQty + 1) * price;
-            }
-            else
-            {
-                // Add new product to cart
-                DataRow newRow = cartTable.NewRow();
-                newRow["ProductId"] = productId;
-                newRow["ProductName"] = productName;
-                newRow["Price"] = price;
-                newRow["Quantity"] = 1;
-                newRow["Total"] = price;
-                cartTable.Rows.Add(newRow);
-            }
-
-            CalculateTotal();
+            table.Rows.Add(productId, productName, price);
         }
+
 
         private void PlaceOrder(int customerId)
         {
@@ -165,7 +153,7 @@ namespace IchirakuRamenShop
                 MessageBox.Show("Order placed successfully!");
 
                 // Optionally clear the cart
-                cartTable.Clear();
+                
                 CalculateTotal();
             }
             catch (Exception ex)
@@ -182,7 +170,7 @@ namespace IchirakuRamenShop
             totalAmount = 0;
             foreach (DataRow row in cartTable.Rows)
             {
-                totalAmount += Convert.ToDecimal(row["Total"]);
+                totalAmount += Convert.ToInt32(row["Total"]);
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
