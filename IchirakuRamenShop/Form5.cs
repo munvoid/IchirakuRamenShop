@@ -22,7 +22,10 @@ namespace IchirakuRamenShop
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("Form 6 LOAD");
+
             LoadProductGrid();
+ 
 
         }
         private void LoadProductGrid()

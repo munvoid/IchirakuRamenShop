@@ -90,5 +90,12 @@ namespace IchirakuRamenShop
         {
             Application.Exit();
         }
+
+        private void Form6_Click(object sender, EventArgs e)
+        {
+            Form6 f1 = new Form6();
+            f1.Show();
+            this.Hide();
+        }
     }
 }

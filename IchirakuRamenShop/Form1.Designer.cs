@@ -31,6 +31,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
+            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             pictureBox1 = new PictureBox();
             label3 = new Label();
             label1 = new Label();
@@ -40,7 +41,7 @@
             btnLogin = new Button();
             btnRegister = new Button();
             lblStatus = new Label();
-            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            Form6 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -57,6 +58,19 @@
             panel1.Size = new Size(670, 345);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint_1;
+            // 
+            // guna2ControlBox1
+            // 
+            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox1.CustomizableEdges = customizableEdges1;
+            guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
+            guna2ControlBox1.IconColor = Color.White;
+            guna2ControlBox1.Location = new Point(568, 12);
+            guna2ControlBox1.Name = "guna2ControlBox1";
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2ControlBox1.Size = new Size(90, 58);
+            guna2ControlBox1.TabIndex = 8;
+            guna2ControlBox1.Click += guna2ControlBox1_Click;
             // 
             // pictureBox1
             // 
@@ -150,24 +164,25 @@
             lblStatus.TabIndex = 7;
             lblStatus.Click += label4_Click;
             // 
-            // guna2ControlBox1
+            // Form6
             // 
-            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.CustomizableEdges = customizableEdges1;
-            guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
-            guna2ControlBox1.IconColor = Color.White;
-            guna2ControlBox1.Location = new Point(568, 12);
-            guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2ControlBox1.Size = new Size(90, 58);
-            guna2ControlBox1.TabIndex = 8;
-            guna2ControlBox1.Click += guna2ControlBox1_Click;
+            Form6.BackColor = Color.Orange;
+            Form6.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Form6.ForeColor = SystemColors.ButtonHighlight;
+            Form6.Location = new Point(407, 351);
+            Form6.Name = "Form6";
+            Form6.Size = new Size(170, 60);
+            Form6.TabIndex = 8;
+            Form6.Text = "Form6";
+            Form6.UseVisualStyleBackColor = false;
+            Form6.Click += Form6_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(670, 860);
+            Controls.Add(Form6);
             Controls.Add(lblStatus);
             Controls.Add(btnRegister);
             Controls.Add(btnLogin);
@@ -202,5 +217,6 @@
         private PictureBox pictureBox1;
         private Label lblStatus;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Button Form6;
     }
 }
