@@ -41,17 +41,17 @@ namespace IchirakuRamenShop
             try
             {
                 con.Open();
-                string query = "SELECT Role FROM [Users] WHERE Username = @uname AND Password = @pass";
+                string query = "SELECT uid, Role FROM [Users] WHERE Username = @uname AND Password = @pass";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@uname", username);
                 cmd.Parameters.AddWithValue("@pass", password);
 
 
-                object result = cmd.ExecuteScalar();
-
-                if (result != null)
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    string role = result.ToString();
+                    int uid = reader.GetInt32(0);
+                    string role = reader.GetString(1);
 
                     if (role == "Customer")
                     {
@@ -75,6 +75,7 @@ namespace IchirakuRamenShop
                 {
                     lblStatus.Text = "Invalid username or password.";
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {
