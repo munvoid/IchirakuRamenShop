@@ -38,10 +38,12 @@ namespace IchirakuRamenShop
         {
             string username = textUsername.Text;
             string password = textPassword.Text;
+            Int32 userId = 0;
+            string role = "";
             try
             {
                 con.Open();
-                string query = "SELECT uid, Role FROM [Users] WHERE Username = @uname AND Password = @pass";
+                string query = "SELECT  Uid, Role FROM [Users] WHERE Username = @uname AND Password = @pass";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@uname", username);
                 cmd.Parameters.AddWithValue("@pass", password);
@@ -50,13 +52,29 @@ namespace IchirakuRamenShop
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    int uid = reader.GetInt32(0);
-                    string role = reader.GetString(1);
+                    userId = reader.GetInt32(0);
+                    role = reader.GetString(1);
 
                     if (role == "Customer")
                     {
-                        Form5 f5 = new Form5();
-                        f5.Show();
+                        // Fetch Cid from Customer table using userId (Uid)
+                        Int32 cid = 0;
+                        reader.Close(); // Close previous reader before new command
+                        string customerQuery = "SELECT Cid FROM Customer WHERE Uid = @uid";
+                        SqlCommand customerCmd = new SqlCommand(customerQuery, con);
+                        customerCmd.Parameters.AddWithValue("@uid", userId);
+                        object cidResult = customerCmd.ExecuteScalar();
+                        if (cidResult != null)
+                        {
+                            cid = Convert.ToInt32(cidResult);
+                            Form5 f5 = new Form5(cid);
+                            f5.Show();
+                        }
+                        else
+                        {
+                            lblStatus.Text = "Customer record not found.";
+                            return;
+                        }
                     }
                     else if (role == "Stuff")
                     {
@@ -75,7 +93,6 @@ namespace IchirakuRamenShop
                 {
                     lblStatus.Text = "Invalid username or password.";
                 }
-                reader.Close();
             }
             catch (Exception ex)
             {

@@ -13,14 +13,15 @@ namespace IchirakuRamenShop
 {
     public partial class Form5 : Form
     {
-        Int32 totalAmount = 0;
+        int totalAmount = 0;
+        Int32 customer_Id;
         DataTable table;
 
         SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
 
-        public Form5()
+        public Form5(int cid)
         {
-
+            customer_Id = cid; 
             InitializeComponent();
         }
 
@@ -102,7 +103,7 @@ namespace IchirakuRamenShop
                 // Get product details from the selected row
                 int pid = Convert.ToInt32(dataGridViewProducts.Rows[e.RowIndex].Cells["Pid"].Value);
                 string pname = dataGridViewProducts.Rows[e.RowIndex].Cells["PName"].Value.ToString();
-                Int32 price = Convert.ToInt32(dataGridViewProducts.Rows[e.RowIndex].Cells["Price"].Value);
+                int price = Convert.ToInt32(dataGridViewProducts.Rows[e.RowIndex].Cells["Price"].Value);
 
                 // Add to cart
                 AddToCart(pid, pname, price);
@@ -129,7 +130,7 @@ namespace IchirakuRamenShop
         }
 
 
-        private void PlaceOrder(int customerId)
+        private void PlaceOrder()
         {
             if (table.Rows.Count == 0) // cartTable.DataSource = table;
             {
@@ -145,7 +146,7 @@ namespace IchirakuRamenShop
 
                 // 2. Link Cart with Customer
                 SqlCommand cmdHas = new SqlCommand("INSERT INTO Has (Cid, Cartid) VALUES (@cid, @cartid)", con);
-                cmdHas.Parameters.AddWithValue("@cid", customerId);
+                cmdHas.Parameters.AddWithValue("@cid", customer_Id);
                 cmdHas.Parameters.AddWithValue("@cartid", cartId);
                 cmdHas.ExecuteNonQuery();
 
@@ -198,4 +199,3 @@ namespace IchirakuRamenShop
         }
     }
 }
-              
