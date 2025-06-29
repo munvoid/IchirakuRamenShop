@@ -30,10 +30,12 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             label1 = new Label();
@@ -48,6 +50,7 @@
             txtPName = new TextBox();
             label2 = new Label();
             openFileDialog = new OpenFileDialog();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -90,6 +93,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(guna2Button1);
             panel2.Controls.Add(btnSelectImg);
             panel2.Controls.Add(btnconfirm);
             panel2.Controls.Add(label5);
@@ -108,7 +112,7 @@
             // 
             // btnSelectImg
             // 
-            btnSelectImg.CustomizableEdges = customizableEdges3;
+            btnSelectImg.CustomizableEdges = customizableEdges5;
             btnSelectImg.DisabledState.BorderColor = Color.DarkGray;
             btnSelectImg.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSelectImg.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -118,7 +122,7 @@
             btnSelectImg.ForeColor = Color.Black;
             btnSelectImg.Location = new Point(278, 453);
             btnSelectImg.Name = "btnSelectImg";
-            btnSelectImg.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnSelectImg.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnSelectImg.Size = new Size(382, 42);
             btnSelectImg.TabIndex = 10;
             btnSelectImg.Text = "Select image";
@@ -127,16 +131,16 @@
             // btnconfirm
             // 
             btnconfirm.AutoRoundedCorners = true;
-            btnconfirm.CustomizableEdges = customizableEdges5;
+            btnconfirm.CustomizableEdges = customizableEdges7;
             btnconfirm.DisabledState.BorderColor = Color.DarkGray;
             btnconfirm.DisabledState.CustomBorderColor = Color.DarkGray;
             btnconfirm.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnconfirm.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnconfirm.Font = new Font("Segoe UI", 9F);
             btnconfirm.ForeColor = Color.White;
-            btnconfirm.Location = new Point(391, 537);
+            btnconfirm.Location = new Point(296, 537);
             btnconfirm.Name = "btnconfirm";
-            btnconfirm.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnconfirm.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnconfirm.Size = new Size(178, 69);
             btnconfirm.TabIndex = 9;
             btnconfirm.Text = "Confirm";
@@ -208,6 +212,24 @@
             // 
             openFileDialog.FileName = "openFileDialog1";
             // 
+            // guna2Button1
+            // 
+            guna2Button1.AutoRoundedCorners = true;
+            guna2Button1.CustomizableEdges = customizableEdges3;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.Font = new Font("Segoe UI", 9F);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(480, 539);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button1.Size = new Size(178, 69);
+            guna2Button1.TabIndex = 11;
+            guna2Button1.Text = "Back";
+            guna2Button1.Click += guna2Button1_Click;
+            // 
             // Form7
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -242,5 +264,6 @@
         private Guna.UI2.WinForms.Guna2Button btnconfirm;
         private Guna.UI2.WinForms.Guna2Button btnSelectImg;
         private OpenFileDialog openFileDialog;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

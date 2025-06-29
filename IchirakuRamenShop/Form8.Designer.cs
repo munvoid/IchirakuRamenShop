@@ -28,29 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             gridOrder = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)gridOrder).BeginInit();
             SuspendLayout();
             // 
             // gridOrder
             // 
+            gridOrder.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             gridOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridOrder.Location = new Point(0, 24);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            gridOrder.DefaultCellStyle = dataGridViewCellStyle1;
+            gridOrder.Location = new Point(0, 31);
+            gridOrder.Margin = new Padding(4, 4, 4, 4);
             gridOrder.Name = "gridOrder";
             gridOrder.RowHeadersWidth = 62;
-            gridOrder.Size = new Size(635, 201);
+            gridOrder.Size = new Size(1027, 473);
             gridOrder.TabIndex = 0;
             gridOrder.CellContentClick += gridOrder_CellContentClick;
-            gridOrder.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            gridOrder.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
             // 
             // Form8
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1040, 576);
             Controls.Add(gridOrder);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Form8";
             Text = "Form8";
             Load += Form8_Load;

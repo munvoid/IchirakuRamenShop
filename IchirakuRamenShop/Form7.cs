@@ -128,5 +128,12 @@ namespace IchirakuRamenShop
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Form6 f6 = new Form6();
+            f6.Show();
+            this.Hide();
+        }
     }
 }

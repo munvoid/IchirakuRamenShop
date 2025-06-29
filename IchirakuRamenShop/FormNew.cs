@@ -16,5 +16,10 @@ namespace IchirakuRamenShop
         {
             InitializeComponent();
         }
+
+        private void FormNew_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

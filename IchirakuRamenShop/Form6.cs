@@ -72,11 +72,11 @@ namespace IchirakuRamenShop
                 // Get product details from the selected row
                 int pid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Pid"].Value);
                 string pname = dataGridView1.Rows[e.RowIndex].Cells["PName"].Value.ToString();
-                
+
                 // Confirm deletion
-                DialogResult result = MessageBox.Show($"Are you sure you want to delete '{pname}'?", 
+                DialogResult result = MessageBox.Show($"Are you sure you want to delete '{pname}'?",
                                                     "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                
+
                 if (result == DialogResult.Yes)
                 {
                     DeleteProduct(pid);
@@ -95,43 +95,55 @@ namespace IchirakuRamenShop
         }
         private void DeleteProduct(int pid)
         {
-           
-                try
-                {
-                     con.Open();
 
-                    string query = "DELETE FROM Product WHERE PId = @pid";
-                    using SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@pid", pid);
+            try
+            {
+                con.Open();
 
-                    int rows = cmd.ExecuteNonQuery();
+                string query = "DELETE FROM Product WHERE PId = @pid";
+                using SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@pid", pid);
 
-                    if (rows > 0)
-                    {
-                        MessageBox.Show("Product deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No product found with the specified ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
                 {
-                    MessageBox.Show("Error deleting product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Product deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                finally
+                else
                 {
-                    con.Close();
+                    MessageBox.Show("No product found with the specified ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e) { }
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Form7 f1 = new Form7();
+            f1.Show();
+            this.Hide();
+        }
         private void guna2Panel3_Paint(object sender, PaintEventArgs e) { }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Form8 f1 = new Form8();
+            f1.Show();
+            this.Hide();
         }
     }
 }

@@ -41,7 +41,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            btnClose = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             button1 = new Button();
@@ -56,6 +55,7 @@
             guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             btnexit = new Guna.UI2.WinForms.Guna2ControlBox();
+            btnClose = new Button();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             guna2Panel2.SuspendLayout();
@@ -66,6 +66,7 @@
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(button1);
             guna2Panel1.Controls.Add(btnClose);
             guna2Panel1.Controls.Add(label1);
             guna2Panel1.Controls.Add(pictureBox1);
@@ -73,51 +74,36 @@
             guna2Panel1.Dock = DockStyle.Left;
             guna2Panel1.FillColor = Color.FromArgb(255, 225, 130);
             guna2Panel1.Location = new Point(0, 0);
-            guna2Panel1.Margin = new Padding(2, 2, 2, 2);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Panel1.Size = new Size(361, 830);
+            guna2Panel1.Size = new Size(481, 1107);
             guna2Panel1.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            btnClose.Location = new Point(70, 422);
-            btnClose.Margin = new Padding(2, 2, 2, 2);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(112, 34);
-            btnClose.TabIndex = 1;
-            btnClose.Text = "button1";
-            btnClose.UseVisualStyleBackColor = true;
-            btnClose.Click += btnClose_Click;
             // 
             // label1
             // 
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Bodoni MT", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(40, 292);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(53, 389);
             label1.Name = "label1";
-            label1.Size = new Size(286, 102);
+            label1.Size = new Size(381, 136);
             label1.TabIndex = 1;
             label1.Text = "Order Your Fevorite Dish from Ichiraku Ramen";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.japanese_ramen_noodle_food_suitable_for_use_as_logo_posters_menus_etc_free_vector;
-            pictureBox1.Location = new Point(70, 83);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Location = new Point(93, 111);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(210, 196);
+            pictureBox1.Size = new Size(280, 261);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            button1.Location = new Point(783, 569);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Location = new Point(93, 669);
             button1.Name = "button1";
-            button1.Size = new Size(188, 56);
+            button1.Size = new Size(251, 75);
             button1.TabIndex = 2;
             button1.Text = "Place Order";
             button1.UseVisualStyleBackColor = true;
@@ -125,39 +111,35 @@
             // 
             // guna2Panel2
             // 
-            guna2Panel2.Controls.Add(button1);
             guna2Panel2.Controls.Add(cartTable);
             guna2Panel2.Controls.Add(dataGridViewProducts);
             guna2Panel2.CustomizableEdges = customizableEdges3;
             guna2Panel2.Dock = DockStyle.Fill;
             guna2Panel2.Font = new Font("Segoe UI", 15F);
-            guna2Panel2.Location = new Point(361, 0);
-            guna2Panel2.Margin = new Padding(2, 2, 2, 2);
+            guna2Panel2.Location = new Point(481, 0);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Panel2.Size = new Size(1099, 830);
+            guna2Panel2.Size = new Size(1466, 1107);
             guna2Panel2.TabIndex = 1;
             guna2Panel2.Paint += guna2Panel2_Paint;
             // 
             // cartTable
             // 
             cartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            cartTable.Location = new Point(734, 123);
-            cartTable.Margin = new Padding(2, 2, 2, 2);
+            cartTable.Location = new Point(979, 164);
             cartTable.Name = "cartTable";
             cartTable.RowHeadersWidth = 82;
-            cartTable.Size = new Size(396, 556);
+            cartTable.Size = new Size(528, 741);
             cartTable.TabIndex = 1;
             // 
             // dataGridViewProducts
             // 
             dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewProducts.Columns.AddRange(new DataGridViewColumn[] { Pid, PName, Price, Image });
-            dataGridViewProducts.Location = new Point(26, 123);
-            dataGridViewProducts.Margin = new Padding(2, 2, 2, 2);
+            dataGridViewProducts.Location = new Point(35, 164);
             dataGridViewProducts.Name = "dataGridViewProducts";
             dataGridViewProducts.RowHeadersWidth = 82;
-            dataGridViewProducts.Size = new Size(695, 556);
+            dataGridViewProducts.Size = new Size(927, 741);
             dataGridViewProducts.TabIndex = 0;
             dataGridViewProducts.CellContentClick += dataGridViewProducts_CellContentClick;
             // 
@@ -201,11 +183,10 @@
             guna2Panel3.CustomizableEdges = customizableEdges11;
             guna2Panel3.Dock = DockStyle.Top;
             guna2Panel3.FillColor = Color.Gainsboro;
-            guna2Panel3.Location = new Point(361, 0);
-            guna2Panel3.Margin = new Padding(2, 2, 2, 2);
+            guna2Panel3.Location = new Point(481, 0);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel3.Size = new Size(1099, 79);
+            guna2Panel3.Size = new Size(1466, 105);
             guna2Panel3.TabIndex = 1;
             guna2Panel3.Paint += guna2Panel3_Paint;
             // 
@@ -217,11 +198,10 @@
             guna2ControlBox3.CustomizableEdges = customizableEdges5;
             guna2ControlBox3.FillColor = Color.FromArgb(139, 152, 166);
             guna2ControlBox3.IconColor = Color.White;
-            guna2ControlBox3.Location = new Point(870, 9);
-            guna2ControlBox3.Margin = new Padding(2, 2, 2, 2);
+            guna2ControlBox3.Location = new Point(1161, 12);
             guna2ControlBox3.Name = "guna2ControlBox3";
             guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2ControlBox3.Size = new Size(49, 44);
+            guna2ControlBox3.Size = new Size(65, 59);
             guna2ControlBox3.TabIndex = 2;
             // 
             // guna2ControlBox2
@@ -232,11 +212,10 @@
             guna2ControlBox2.CustomizableEdges = customizableEdges7;
             guna2ControlBox2.FillColor = Color.FromArgb(139, 152, 166);
             guna2ControlBox2.IconColor = Color.White;
-            guna2ControlBox2.Location = new Point(953, 9);
-            guna2ControlBox2.Margin = new Padding(2, 2, 2, 2);
+            guna2ControlBox2.Location = new Point(1272, 12);
             guna2ControlBox2.Name = "guna2ControlBox2";
             guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2ControlBox2.Size = new Size(49, 44);
+            guna2ControlBox2.Size = new Size(65, 59);
             guna2ControlBox2.TabIndex = 1;
             // 
             // btnexit
@@ -247,25 +226,33 @@
             btnexit.FillColor = Color.FromArgb(139, 152, 166);
             btnexit.Font = new Font("Segoe UI", 10F);
             btnexit.IconColor = Color.White;
-            btnexit.Location = new Point(1030, 9);
-            btnexit.Margin = new Padding(2, 2, 2, 2);
+            btnexit.Location = new Point(1374, 12);
             btnexit.Name = "btnexit";
             btnexit.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnexit.Size = new Size(49, 44);
+            btnexit.Size = new Size(65, 59);
             btnexit.TabIndex = 0;
             btnexit.Click += btnexit_Click;
             // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(93, 563);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(10, 10);
+            btnClose.TabIndex = 1;
+            btnClose.Text = "button1";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
             // Form5
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(192F, 192F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
-            ClientSize = new Size(1460, 830);
+            ClientSize = new Size(1947, 1107);
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
             Name = "Form5";
             Text = "Form5";
             WindowState = FormWindowState.Maximized;
@@ -290,12 +277,12 @@
         private Label label1;
         private PictureBox pictureBox1;
         private DataGridView dataGridViewProducts;
-        private Button btnClose;
         private DataGridViewTextBoxColumn Pid;
         private DataGridViewTextBoxColumn PName;
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn Image;
         private DataGridView cartTable;
         private Button button1;
+        private Button btnClose;
     }
 }
