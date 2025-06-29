@@ -190,7 +190,7 @@ namespace IchirakuRamenShop
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            PlaceOrder(300);
+            PlaceOrder();
         }
 
         private void guna2Panel3_Paint(object sender, PaintEventArgs e)
