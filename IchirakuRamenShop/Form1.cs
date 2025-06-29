@@ -41,23 +41,39 @@ namespace IchirakuRamenShop
             try
             {
                 con.Open();
-                string query = "SELECT COUNT(*) FROM [Users] WHERE Username = @uname AND Password = @pass";
+                string query = "SELECT Role FROM [Users] WHERE Username = @uname AND Password = @pass";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@uname", username);
                 cmd.Parameters.AddWithValue("@pass", password);
 
-                int count = (int)cmd.ExecuteScalar();
 
-                if (count > 0)
+                object result = cmd.ExecuteScalar();
+
+                if (result != null)
                 {
-                    // Login success → Go to Form5
-                    Form5 f5 = new Form5();
-                    f5.Show();
+                    string role = result.ToString();
+
+                    if (role == "Customer")
+                    {
+                        Form5 f5 = new Form5();
+                        f5.Show();
+                    }
+                    else if (role == "Stuff")
+                    {
+                        Form6 f6 = new Form6();
+                        f6.Show();
+                    }
+                    else if (role == "Admin")
+                    {
+                        Form4 f4 = new Form4();
+                        f4.Show();
+                    }
+
                     this.Hide();
                 }
                 else
                 {
-                    lblStatus.Text = "Invalid username or password";
+                    lblStatus.Text = "Invalid username or password.";
                 }
             }
             catch (Exception ex)

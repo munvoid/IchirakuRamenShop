@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             pictureBox1 = new PictureBox();
@@ -41,7 +41,6 @@
             btnLogin = new Button();
             btnRegister = new Button();
             lblStatus = new Label();
-            Form6 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -62,12 +61,12 @@
             // guna2ControlBox1
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2ControlBox1.CustomizableEdges = customizableEdges1;
+            guna2ControlBox1.CustomizableEdges = customizableEdges3;
             guna2ControlBox1.FillColor = Color.FromArgb(139, 152, 166);
             guna2ControlBox1.IconColor = Color.White;
             guna2ControlBox1.Location = new Point(568, 12);
             guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2ControlBox1.Size = new Size(90, 58);
             guna2ControlBox1.TabIndex = 8;
             guna2ControlBox1.Click += guna2ControlBox1_Click;
@@ -97,7 +96,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(115, 431);
+            label1.Location = new Point(115, 399);
             label1.Name = "label1";
             label1.Size = new Size(136, 37);
             label1.TabIndex = 1;
@@ -106,7 +105,7 @@
             // 
             // textUsername
             // 
-            textUsername.Location = new Point(115, 493);
+            textUsername.Location = new Point(115, 460);
             textUsername.Name = "textUsername";
             textUsername.Size = new Size(421, 43);
             textUsername.TabIndex = 2;
@@ -116,7 +115,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(115, 598);
+            label2.Location = new Point(115, 530);
             label2.Name = "label2";
             label2.Size = new Size(128, 37);
             label2.TabIndex = 3;
@@ -124,7 +123,7 @@
             // 
             // textPassword
             // 
-            textPassword.Location = new Point(115, 658);
+            textPassword.Location = new Point(115, 595);
             textPassword.Name = "textPassword";
             textPassword.Size = new Size(421, 43);
             textPassword.TabIndex = 4;
@@ -158,32 +157,17 @@
             // 
             // lblStatus
             // 
-            lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(321, 724);
+            lblStatus.Location = new Point(85, 664);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(0, 37);
+            lblStatus.Size = new Size(494, 57);
             lblStatus.TabIndex = 7;
             lblStatus.Click += label4_Click;
-            // 
-            // Form6
-            // 
-            Form6.BackColor = Color.Orange;
-            Form6.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Form6.ForeColor = SystemColors.ButtonHighlight;
-            Form6.Location = new Point(423, 354);
-            Form6.Name = "Form6";
-            Form6.Size = new Size(170, 60);
-            Form6.TabIndex = 8;
-            Form6.Text = "Form6";
-            Form6.UseVisualStyleBackColor = false;
-            Form6.Click += Form6_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(670, 860);
-            Controls.Add(Form6);
             Controls.Add(lblStatus);
             Controls.Add(btnRegister);
             Controls.Add(btnLogin);
@@ -218,6 +202,5 @@
         private PictureBox pictureBox1;
         private Label lblStatus;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Button Form6;
     }
 }
