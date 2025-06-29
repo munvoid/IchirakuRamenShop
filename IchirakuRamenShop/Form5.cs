@@ -16,7 +16,7 @@ namespace IchirakuRamenShop
         Int32 totalAmount = 0;
         DataTable table;
 
-        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-1D8R49Q;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
 
         public Form5()
         {
@@ -190,6 +190,11 @@ namespace IchirakuRamenShop
         private void btnOrder_Click(object sender, EventArgs e)
         {
             PlaceOrder(300);
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
