@@ -110,6 +110,7 @@
             textUsername.Name = "textUsername";
             textUsername.Size = new Size(421, 43);
             textUsername.TabIndex = 2;
+            textUsername.TextChanged += textUsername_TextChanged;
             // 
             // label2
             // 
@@ -169,7 +170,7 @@
             Form6.BackColor = Color.Orange;
             Form6.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Form6.ForeColor = SystemColors.ButtonHighlight;
-            Form6.Location = new Point(407, 351);
+            Form6.Location = new Point(423, 354);
             Form6.Name = "Form6";
             Form6.Size = new Size(170, 60);
             Form6.TabIndex = 8;

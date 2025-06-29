@@ -41,10 +41,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            button1 = new Button();
             btnClose = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             cartTable = new DataGridView();
             dataGridViewProducts = new DataGridView();
@@ -78,16 +78,6 @@
             guna2Panel1.Size = new Size(481, 1200);
             guna2Panel1.TabIndex = 0;
             // 
-            // button1
-            // 
-            button1.Location = new Point(1044, 759);
-            button1.Name = "button1";
-            button1.Size = new Size(250, 75);
-            button1.TabIndex = 2;
-            button1.Text = "Place Order";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += btnOrder_Click;
-            // 
             // btnClose
             // 
             btnClose.Location = new Point(94, 563);
@@ -118,6 +108,16 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            button1.Location = new Point(1044, 759);
+            button1.Name = "button1";
+            button1.Size = new Size(250, 75);
+            button1.TabIndex = 2;
+            button1.Text = "Place Order";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnOrder_Click;
+            // 
             // guna2Panel2
             // 
             guna2Panel2.Controls.Add(button1);
@@ -136,7 +136,7 @@
             // cartTable
             // 
             cartTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            cartTable.Location = new Point(963, 164);
+            cartTable.Location = new Point(979, 164);
             cartTable.Name = "cartTable";
             cartTable.RowHeadersWidth = 82;
             cartTable.Size = new Size(528, 741);
@@ -149,7 +149,7 @@
             dataGridViewProducts.Location = new Point(35, 164);
             dataGridViewProducts.Name = "dataGridViewProducts";
             dataGridViewProducts.RowHeadersWidth = 82;
-            dataGridViewProducts.Size = new Size(898, 741);
+            dataGridViewProducts.Size = new Size(927, 741);
             dataGridViewProducts.TabIndex = 0;
             dataGridViewProducts.CellContentClick += dataGridViewProducts_CellContentClick;
             // 

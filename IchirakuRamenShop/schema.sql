@@ -61,23 +61,23 @@ CREATE TABLE Payment (
     TotalBill DECIMAL(10,2)
 );
 
-CREATE TABLE Manages (
-    Aid INT FOREIGN KEY REFERENCES Admin(Aid),
-    Pid INT FOREIGN KEY REFERENCES Product(Pid),
-    PRIMARY KEY (Aid, Pid)
-);
+--CREATE TABLE Manages (
+--    Aid INT FOREIGN KEY REFERENCES Admin(Aid),
+--    Pid INT FOREIGN KEY REFERENCES Product(Pid),
+--    PRIMARY KEY (Aid, Pid)
+--);
 
-CREATE TABLE Updates (
-    Sid INT FOREIGN KEY REFERENCES Stuff(Sid),
-    Pid INT FOREIGN KEY REFERENCES Product(Pid),
-    PRIMARY KEY (Sid, Pid)
-);
+--CREATE TABLE Updates (
+--    Sid INT FOREIGN KEY REFERENCES Stuff(Sid),
+--    Pid INT FOREIGN KEY REFERENCES Product(Pid),
+--    PRIMARY KEY (Sid, Pid)
+--);
 
-CREATE TABLE Browses (
-    Cid INT FOREIGN KEY REFERENCES Customer(Cid),
-    Pid INT FOREIGN KEY REFERENCES Product(Pid),
-    PRIMARY KEY (Cid, Pid)
-);
+--CREATE TABLE Browses (
+--    Cid INT FOREIGN KEY REFERENCES Customer(Cid),
+--    Pid INT FOREIGN KEY REFERENCES Product(Pid),
+--    PRIMARY KEY (Cid, Pid)
+--);
 
 CREATE TABLE Has (
     Cid INT FOREIGN KEY REFERENCES Customer(Cid),
@@ -86,7 +86,7 @@ CREATE TABLE Has (
 );
 
 CREATE TABLE Stores (
-    Cartid INT FOREIGN KEY REFERENCES Cart(Cartid),
+    Cartid INT FOREIGN KEY REFERENCES Cart(Cartid) ON DELETE CASCADE,
     Pid INT FOREIGN KEY REFERENCES Product(Pid),
     Quantity INT,
     PRIMARY KEY (Cartid, Pid)
@@ -126,6 +126,16 @@ INSERT INTO Product (PName, Price, Description)
 VALUES 
 ('Miso Ramen', 250.00, 'Miso Ramen'),
 ('Soya Ramen', 220.50, 'Soya Ramen');
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Tonkotsu Ramen', 350.00, 'Creamy pork broth ramen', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Miso Ramen', 300.00, 'Rich miso-based ramen', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Shoyu Ramen', 280.00, 'Soy sauce flavored ramen', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Spicy Ramen', 320.00, 'Spicy red chili ramen', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Seafood Ramen', 400.00, 'Ramen with shrimp and squid', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Vegetable Ramen', 250.00, 'Vegan-friendly vegetable ramen', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Naruto Ramen', 420.00, 'Special Ichiraku Naruto favorite', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Chicken Ramen', 290.00, 'Grilled chicken with soy broth', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Beef Ramen', 370.00, 'Beef strips with spicy soy broth', NULL);
+INSERT INTO Product (PName, Price, Description, Image) VALUES ('Cold Ramen', 260.00, 'Chilled ramen with sesame sauce', NULL);
 
 -- Cart
 INSERT INTO Cart DEFAULT VALUES;
@@ -134,22 +144,7 @@ INSERT INTO Cart DEFAULT VALUES;
 INSERT INTO Payment (Payid, TotalBill)
 VALUES (500, 470.50);
 
--- Manages (get latest Pid values using SCOPE_IDENTITY not possible here, assuming 1 and 2)
-INSERT INTO Manages (Aid, Pid)
-VALUES 
-(100, 1),
-(100, 2);
 
--- Updates
-INSERT INTO Updates (Sid, Pid)
-VALUES 
-(200, 1);
-
--- Browses
-INSERT INTO Browses (Cid, Pid)
-VALUES 
-(300, 1),
-(300, 2);
 
 -- Has
 INSERT INTO Has (Cid, Cartid)

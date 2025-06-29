@@ -8,7 +8,7 @@ namespace IchirakuRamenShop
 {
     public partial class Form6 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=rms;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
 
         public Form6()
         {
@@ -40,9 +40,9 @@ namespace IchirakuRamenShop
                     // Add to Cart button column
                     DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
                     btn.HeaderText = "Action";
-                    btn.Text = "Add to Cart";
+                    btn.Text = "Delete Product";
                     btn.UseColumnTextForButtonValue = true;
-                    btn.Name = "AddToCart";
+                    btn.Name = "DeleteProduct";
                     dataGridView1.Columns.Add(btn);
                 }
 
@@ -79,14 +79,51 @@ namespace IchirakuRamenShop
                 
                 if (result == DialogResult.Yes)
                 {
-                    DeleteProduct(pid, pname);
+                    DeleteProduct(pid);
                 }
             }
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT Pid, PName, Price, Image FROM Product", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+
         }
 
         private void Form6_Load_1(object sender, EventArgs e)
         {
             LoadProductGrid();
+        }
+        private void DeleteProduct(int pid)
+        {
+           
+                try
+                {
+                     con.Open();
+
+                    string query = "DELETE FROM Product WHERE PId = @pid";
+                    using SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@pid", pid);
+
+                    int rows = cmd.ExecuteNonQuery();
+
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("Product deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No product found with the specified ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    con.Close();
+                }
+            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e) { }

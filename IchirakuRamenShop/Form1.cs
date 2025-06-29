@@ -5,7 +5,7 @@ namespace IchirakuRamenShop
 {
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=rms;Integrated Security=True;Encrypt=False");
+        SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
 
         public Form1()
         {
@@ -41,7 +41,7 @@ namespace IchirakuRamenShop
             try
             {
                 con.Open();
-                string query = "SELECT COUNT(*) FROM [User] WHERE Username = @uname AND Password = @pass";
+                string query = "SELECT COUNT(*) FROM [Users] WHERE Username = @uname AND Password = @pass";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@uname", username);
                 cmd.Parameters.AddWithValue("@pass", password);
@@ -93,9 +93,14 @@ namespace IchirakuRamenShop
 
         private void Form6_Click(object sender, EventArgs e)
         {
-            Form7 f1 = new Form7();
+            Form6 f1 = new Form6();
             f1.Show();
             this.Hide();
+        }
+
+        private void textUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
