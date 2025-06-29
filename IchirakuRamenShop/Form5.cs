@@ -14,14 +14,13 @@ namespace IchirakuRamenShop
     public partial class Form5 : Form
     {
         int totalAmount = 0;
-        Int32 customer_Id;
+        Int32 customer_Id = 300;
         DataTable table;
 
         SqlConnection con = new SqlConnection("Data Source=BRAINSTATION;Initial Catalog=ichi;Integrated Security=True;Encrypt=False");
 
         public Form5(int cid)
         {
-            customer_Id = cid; 
             InitializeComponent();
         }
 
