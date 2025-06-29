@@ -123,5 +123,10 @@ namespace IchirakuRamenShop
             txtDescription.Clear();
             selectedImagePath = string.Empty;
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

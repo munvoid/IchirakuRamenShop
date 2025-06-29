@@ -104,6 +104,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1052, 629);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
             // btnSelectImg
             // 
